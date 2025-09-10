@@ -27,7 +27,7 @@ public class DataTypeStringChar {
 				// \t: tabulátor
 				// \b: backspace
 				
-				String text1 = "Ez egy java \nString";
+				String text1 = "Ez egy java \n String";
 				System.out.println(text1);
 				
 				String text2 = "Ez egy\t java String";
