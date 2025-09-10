@@ -7,8 +7,10 @@ public class App {
 
 		TaskSolution ts = new TaskSolution();
 		Product product1 = ts.createProduct("product1");
-		product1.calculateGrossPrice(product1);
+		Product product2 = ts.createProduct("product2");
+		product1.calculateGrossPrice();
 		System.out.println(product1.toString());
+		System.out.println(product2.toString());
 	}
 
 }

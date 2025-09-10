@@ -32,8 +32,8 @@ public class Product {
 	}
 	
 	//- c. Készítsünk metódust, ami kiírja az egyes termékek bruttó árát!
-	public double calculateGrossPrice( Product product) {
-		return (double) product.netPrice+(product.netPrice*0.27);
+	public double calculateGrossPrice() {
+		return (double) netPrice*1.27;
 	}
 	
 	
