@@ -1,0 +1,7 @@
+név;magasság;súly
+Teszt Elek;180;80
+Gipsz Jakab;175;78
+Nap Pali;195;110
+John Doe;182;90
+Jane Doe;175;68
+Jonnie Doe;195;95

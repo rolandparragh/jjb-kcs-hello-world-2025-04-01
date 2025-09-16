@@ -8,9 +8,12 @@ public class App {
 		TaskSolution ts = new TaskSolution();
 		Product product1 = ts.createProduct("product1");
 		Product product2 = ts.createProduct("product2");
-		product1.calculateGrossPrice();
+		product1.getGrossPrice();
 		System.out.println(product1.toString());
+		System.out.println("A termék brutto ára: " + product1.getGrossPrice());
 		System.out.println(product2.toString());
+		System.out.println("A termékek brutto ára: " + product2.getGrossPrice());
+		ts.printMoreExpensiveProduct(product1, product2);
 	}
 
 }
