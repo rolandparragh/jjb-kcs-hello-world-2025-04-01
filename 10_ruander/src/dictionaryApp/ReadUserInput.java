@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 
 public class ReadUserInput {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	private static final int HUN_TO_ENG = 1;
+	private static final int ENG_TO_HUN = 2;
 
 	public int selectLanguage() {
 
@@ -39,5 +41,15 @@ public class ReadUserInput {
 
 		return userInput;
 
+	}
+
+	public int determineDictionary() {
+		int userDecision = 0;
+		do {
+			System.out.println("A szám nem 1 vagy 2... ");
+			userDecision = selectLanguage();
+		} while (userDecision != HUN_TO_ENG && userDecision != ENG_TO_HUN);
+
+		return userDecision;
 	}
 }
