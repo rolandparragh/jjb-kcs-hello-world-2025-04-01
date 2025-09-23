@@ -45,9 +45,13 @@ public class ReadUserInput {
 
 	public int determineDictionary() {
 		int userDecision = 0;
-		do {
-			System.out.println("A szám nem 1 vagy 2... ");
+		do {try {
 			userDecision = selectLanguage();
+		}catch (NumberFormatException e) {
+		    // handled by loop
+		}if(userDecision != HUN_TO_ENG && userDecision != ENG_TO_HUN) {
+			System.out.println("A szám nem 1 vagy 2... ");
+		}
 		} while (userDecision != HUN_TO_ENG && userDecision != ENG_TO_HUN);
 
 		return userDecision;

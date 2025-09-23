@@ -9,23 +9,22 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FileHandler {
-	private String filePath = "dictionary_data/dictionary.csv";
+public class HunToEngLoader implements DictionaryLoader {
 
-	public Map<String, String> readDictionary(int userDecision) {
+	@Override
+	public Dictionary load(String filePath) {
+		// TODO Auto-generated method stub
 
-		Map<String, String> usedDicitonary = new HashMap<>();
+		Map<String, String> words = new HashMap<>();
 
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"));
 			while (br.ready()) {
 				String row = br.readLine();
 				String[] rowData = row.split(";");
-				if (userDecision == 1) {
-					usedDicitonary.put(rowData[1], rowData[0]);
-				} else {
-					usedDicitonary.put(rowData[0], rowData[1]);
-				}
+
+				words.put(rowData[1], rowData[0]);
+
 			}
 			br.close();
 		} catch (UnsupportedEncodingException e) {
@@ -35,11 +34,10 @@ public class FileHandler {
 			System.err.println("A fájl nem található...");
 			e.printStackTrace();
 		} catch (IOException e) {
-			System.err.println("IO hiba történt...");
-			e.printStackTrace();
+			System.err.println("Error reading dictionary: " + e.getMessage());
 		}
 
-		return usedDicitonary;
+		return new Dictionary(words);
 	}
 
 }

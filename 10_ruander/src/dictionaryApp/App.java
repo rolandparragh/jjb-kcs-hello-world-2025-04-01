@@ -1,8 +1,5 @@
 package dictionaryApp;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class App {
 
 	public static void main(String[] args) {
@@ -20,16 +17,23 @@ public class App {
 		// tájékoztatást!
 		// Betartandó szempontok: Clean Code (CC) és OOP + adatszerkezetek (JCF) +
 		// kivételkezelés
-		FileHandler fh = new FileHandler();
-		Translation tr = new Translation();
-		ReadUserInput rui = new ReadUserInput();
-		int userDecision = rui.determineDictionary();
+		ReadUserInput input = new ReadUserInput();
+		int userDecision = input.determineDictionary();
+		DictionaryLoader loader = null;
 
-		Map<String, String> usedDictionary = new HashMap<>();
-		usedDictionary = fh.readDictionary(userDecision); // input
-		tr.translateWord(usedDictionary);
+		if (userDecision == 1) {
+			loader = new HunToEngLoader();
+		} else {
+			loader = new EngToHunLoader();
+		}
+
+		Dictionary dictionary = loader.load("dictionary_data/dictionary.csv");
+		String wordToTranslate = input.getWordFromUser();
+		if (dictionary.contains(wordToTranslate)) {
+			System.out.println("Fordítás: " + dictionary.translate(wordToTranslate));
+		} else {
+			System.out.println("A megadott szó nincs a szótárban.");
+		}
 	}
-
 }
-
 //
