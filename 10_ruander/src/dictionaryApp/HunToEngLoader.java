@@ -13,7 +13,6 @@ public class HunToEngLoader implements DictionaryLoader {
 
 	@Override
 	public Dictionary load(String filePath) {
-		// TODO Auto-generated method stub
 
 		Map<String, String> words = new HashMap<>();
 
