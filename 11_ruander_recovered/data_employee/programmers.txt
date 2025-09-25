@@ -1,0 +1,8 @@
+1 ; Teszt ; Elek ; programozó ; 990000 ; true
+2 ; Gipsz ; Jakab ; grafikus ; 380000 ; true
+3 ; Kukor ; Ica ; ügyintéző ; 250000 ; false
+4 ; Nap ; Pali ; programozó ; 780000 ; true
+5 ; Fönök ; Béla ; ügyvezető ; 1500000 ; true
+6 ; Doe ; John ; programozó ; 690000 ; true
+7 ; Doe ; Jane ; grafikus ; 550000 ; true
+8 ; Doe ; Jonnie ; programozó ; 990000 ; true

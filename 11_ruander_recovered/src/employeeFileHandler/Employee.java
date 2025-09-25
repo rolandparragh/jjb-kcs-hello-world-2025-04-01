@@ -42,12 +42,14 @@ public class Employee {
 		return active;
 	}
 
+	public String getFullname() {
+		return this.lastName + " " + this.firstName;
+	}
+
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", lastName=" + lastName + ", firstName=" + firstName + ", role=" + role
 				+ ", netSalary=" + netSalary + ", isActive=" + active + "]";
 	}
-
-	
 
 }

@@ -6,12 +6,14 @@ public class App {
 	public static void main(String[] args) {
 		FileHandler fileHandler = new FileHandler();
 		EmployeeUtils employeeUtils = new EmployeeUtils();
-
+		// ezt órán beletettük egy task solutionbe 
 		List<Employee> employees = fileHandler.getEmployeesFromFile("data_employee/employees.txt");
 		System.out.println(employees.size());
 		employeeUtils.outputEmployeeList(employees);
 		List<String> activeRoles = employeeUtils.activeRoles(employees);
 		System.out.println(activeRoles);
+		
+		fileHandler.writeEmployeesFile(employees);
 	}
 }
 //Feladat02: Írjuk ki az adatokat ; határolóval elválasztva! --kész 

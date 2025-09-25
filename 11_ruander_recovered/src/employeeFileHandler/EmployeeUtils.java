@@ -14,14 +14,14 @@ public class EmployeeUtils {
 	// Feladat06: Mentsük az aktuális dolgozó adatokat (törlés után)
 	// employee_data_save_2025_09_23.csv (aktuális dátummal),
 
-	private String getEmployeesAsFormattedString(Employee employee, String limiter) {
+	public String getEmployeesAsFormattedString(Employee employee, String limiter) {
 
 		return employee.getId() + limiter + employee.getLastName() + limiter + employee.getFirstName() + limiter
 				+ employee.getRole() + limiter + employee.getNetSalary() + limiter + employee.isActive();
 
 	}
 	
-	private String getEmployeesAsFormattedString(Employee employee, char limiter) {
+	public String getEmployeesAsFormattedString(Employee employee, char limiter) {
 
 		return employee.getId() + limiter + employee.getLastName() + limiter + employee.getFirstName() + limiter
 				+ employee.getRole() + limiter + employee.getNetSalary() + limiter + employee.isActive();
@@ -32,7 +32,9 @@ public class EmployeeUtils {
 		for (int i = 0; i < employees.size(); i++) {
 			System.out.println(getEmployeesAsFormattedString(employees.get(i), " ; "));
 		}
+		
 	}
+	
 	
 	public List<String> activeRoles(List<Employee> employees){
 		List<String> activeRoles = new ArrayList<>();
