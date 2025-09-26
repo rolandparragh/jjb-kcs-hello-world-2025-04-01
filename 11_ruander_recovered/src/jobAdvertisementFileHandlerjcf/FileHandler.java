@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileHandler {
-	
+
 	@SuppressWarnings("unused")
 	private static String header = "";
 
@@ -34,18 +34,14 @@ public class FileHandler {
 		return jobs;
 
 	}
-	
-	public List<Job> getJobsFromFile( String filePath){
+
+	public List<Job> getJobsFromFile(String filePath) {
 		return readFile(filePath);
 	}
 
 	private Job getJobFromRow(String[] rowData) {
-		Job newJob = new Job(Integer.parseInt(rowData[0]),
-				rowData[1],
-				Integer.parseInt(rowData[2]),
-						Integer.parseInt(rowData[3]),
-						rowData[4].equals("1"),
-						LocalDate.parse(rowData[5]));
+		Job newJob = new Job(Integer.parseInt(rowData[0]), rowData[1], Integer.parseInt(rowData[2]),
+				Integer.parseInt(rowData[3]), rowData[4].equals("1"), LocalDate.parse(rowData[5]));
 		return newJob;
 	}
 }

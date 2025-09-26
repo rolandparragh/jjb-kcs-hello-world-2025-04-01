@@ -1,5 +1,4 @@
 package jobAdvertisementFileHandlerjcf;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -66,7 +65,7 @@ public class JobUtils {
 			if (jobs.get(i).isRemote()) {
 				remoteJobs.add(jobs.get(i));
 			}
-			
+
 		}
 		return remoteJobs;
 	}

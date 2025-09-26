@@ -50,7 +50,7 @@ public class Job {
 		return "Job [id=" + id + ", role=" + role + ", netSalary=" + netSalary + ", expInYears=" + expInYears
 				+ ", remote=" + remote + ", dateOfPublication=" + dateOfPublication + "]";
 	}
-	
+
 	public String getRemoteText() {
 		return this.isRemote() ? "távmunka" : "nem távmunka";
 	}
@@ -65,9 +65,9 @@ public class Job {
 		formatJob += divider;
 		formatJob += this.expInYears;
 		formatJob += divider;
-		formatJob += this.remote;
-		formatJob += divider;
 		formatJob += this.getRemoteText();
+		formatJob += divider;
+		formatJob += this.dateOfPublication;
 		return formatJob;
 
 	}
