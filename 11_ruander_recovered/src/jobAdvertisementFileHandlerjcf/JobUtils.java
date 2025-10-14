@@ -1,7 +1,12 @@
 package jobAdvertisementFileHandlerjcf;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
+
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class JobUtils {
@@ -52,7 +57,7 @@ public class JobUtils {
 	public int countAdsBasedOnRole(String role) {
 		int counter = 0;
 		for (int i = 0; i < jobs.size(); i++) {
-			if (jobs.get(i).getRole().equalsIgnoreCase(role)) {
+			if (jobs.get(i).getRole().contains(role)) {
 				counter++;
 			}
 		}
@@ -80,5 +85,67 @@ public class JobUtils {
 
 		return avgSalary;
 	}
+//kell bele az 
+	public List<Job> findNoExpYears() {
+		List<Job> jobsWithoutExperience = new ArrayList<>();
+		for (int i = 0; i < jobs.size(); i++) {
+			if (jobs.get(i).getExpInYears() < 1) {
+				jobsWithoutExperience.add(jobs.get(i));
+			}
+
+		}
+		return jobsWithoutExperience;
+	}
+//ezt írd át ez szar 
+	public List<Job> findAdvsOlderThanInt(int weeks) {
+		List<Job> olderAdvs = new ArrayList<>();
+	
+		LocalDate localDateActual = LocalDate.now();
+		for (int i = 0; i < jobs.size(); i++) {
+			if (localDateActual.compareTo(jobs.get(i).getDateOfPublication()) >= weeks) {
+				olderAdvs.add(jobs.get(i));
+			}
+
+		}
+		return olderAdvs;
+	}
+	
+	//csináld újra pls! 
+	public void findTheMaxAvg() {
+	    Map<String, Integer> countMap = new HashMap<>();
+	    Map<String, Integer> sumMap = new HashMap<>();
+
+
+	    for (Job job : jobs) {
+	        String role = job.getRole().trim();
+	        int salary = job.getNetSalary();
+
+	        // darabszám
+	        countMap.put(role, countMap.getOrDefault(role, 0) + 1);
+
+	        // fizetések összege
+	        sumMap.put(role, sumMap.getOrDefault(role, 0) + salary);
+	    }
+
+	    // átlag kiszámítása
+	    Map<String, Double> avgMap = new HashMap<>();
+	    for (String role : sumMap.keySet()) {
+	        double avg = (double) sumMap.get(role) / countMap.get(role);
+	        avgMap.put(role, avg);
+	    }
+
+	    String maxRole = null;
+	    double maxAvg = 0.0;
+
+	    for (Map.Entry<String, Double> entry : avgMap.entrySet()) {
+	        if (entry.getValue() > maxAvg) {
+	            maxAvg = entry.getValue();
+	            maxRole = entry.getKey();
+	        }
+	    }
+
+	    System.out.println("Legmagasabb átlagfizetésű role: " + maxRole + " (" + maxAvg + ")");
+	}
+
 
 }

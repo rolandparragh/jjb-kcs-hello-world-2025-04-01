@@ -49,6 +49,9 @@ public class App {
 		System.out.println("Remote jobs: " + jobUtils.findRemoteJobs());
 		List<Job> remoteJobs = jobUtils.findRemoteJobs();
 		System.out.println("A remote jobs keresete:" + jobUtils.countAvgNetSalaryOfRemoteJobs(remoteJobs));
+		System.out.println("Munkák munkatapasztalat nélkül:"+jobUtils.findNoExpYears());
+		System.out.println("A három hétnél régebbi munkák: "+jobUtils.findAdvsOlderThanInt(3));
+		jobUtils.findTheMaxAvg();
 	}
 
 }
