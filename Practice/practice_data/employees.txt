@@ -1,0 +1,9 @@
+id,name,department,salary
+1,John Doe,IT,5500
+2,Jane Smith,HR,4800
+3,Robert Brown,Finance,6000
+4,Emily Davis,IT,7200
+5,Michael Johnson,Marketing,5100
+6,Linda White,Finance,5800
+7,Chris Green,HR,4700
+8,Sarah Black,IT,7500
