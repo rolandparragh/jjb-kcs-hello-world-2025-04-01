@@ -1,0 +1,4 @@
+id,name,age,walk
+1,Luna,3,120
+3,Bella,2,60
+2,Milo,5,90

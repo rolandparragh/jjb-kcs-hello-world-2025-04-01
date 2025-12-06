@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	
+<?import javafx.scene.layout.GridPane?>
+	
+
+<GridPane xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LoginController">
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+   </rowConstraints>
+   <columnConstraints>
+      <ColumnConstraints maxWidth="95.0" minWidth="10.0" prefWidth="45.0" />
+      <ColumnConstraints maxWidth="155.0" minWidth="10.0" prefWidth="155.0" />
+      <ColumnConstraints maxWidth="95.0" minWidth="10.0" prefWidth="62.0" />
+   </columnConstraints>
+   <children>
+      <Label fx:id="lblUserName" prefHeight="17.0" prefWidth="152.0" text="Felhasználónév*:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font></Label>
+   </children>
+</GridPane>

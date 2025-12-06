@@ -1,0 +1,16 @@
+.grid {
+	-fx-font-family:Arial;
+	-fx-font-size:22px;
+}
+
+.btn-order {
+	-fx-font-size:26px;
+	-fx-background-color:#189431;
+	-fx-text-fill:white;
+	-fx-background-radius: 10px;
+	-fx-effect:dropshadow(three-pass-box, rgba(0,0,0,0.8),10,0,0,0);  
+}
+
+.btn-order:hover {
+	-fx-background-color:#2e6e3b;
+}
