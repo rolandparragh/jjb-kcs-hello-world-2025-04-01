@@ -158,5 +158,4 @@ public class NewProductFrame extends JFrame {
 		cbStatus.setSelectedIndex(0);
 
 	}
-
 }

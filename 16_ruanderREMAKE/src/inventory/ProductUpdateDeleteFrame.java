@@ -39,6 +39,7 @@ public class ProductUpdateDeleteFrame extends JFrame {
 	private JButton btnUpdate;
 	private JButton btnClose;
 	private JPanel panelInput;
+	private Connection connection = new Database().createConnection();
 
 	// private Statement stm = null;
 	// private Connection connection = new Database().createConnection();
@@ -170,7 +171,7 @@ public class ProductUpdateDeleteFrame extends JFrame {
 
 	private void loadProductById(int id) {
 
-		Connection connection = new Database().createConnection();
+
 		String sql = "SELECT * FROM product WHERE id ='" + id + "';";
 		try {
 			Statement statement = connection.createStatement();
@@ -190,21 +191,15 @@ public class ProductUpdateDeleteFrame extends JFrame {
 
 	}
 
-	private void deleteProductById(int id) {
-		Connection connection = new Database().createConnection();
+	private void deleteProductById(  int id) {
+	
 		String sql = "DELETE FROM product WHERE id= '" + id + "';";
 
 		try {
 
 			PreparedStatement ps = connection.prepareStatement(sql);
-
-			tfIdentityNumber.setText("");
-			tfName.setText("");
-			tfNetPrice.setText("");
-			tfStockAmount.setText("");
-			cbStatus.setSelectedIndex(0);
 			ps.executeUpdate();
-
+			dispose();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -215,7 +210,7 @@ public class ProductUpdateDeleteFrame extends JFrame {
 	
 	
 	private void updateProductById(int id) {
-		Connection connection = new Database().createConnection();
+		
 		String sql ="UPDATE product SET identity_number=?, name=?, net_price=?, stock_amount=?, status=? WHERE id='"+id+  "';";
 
 		try {

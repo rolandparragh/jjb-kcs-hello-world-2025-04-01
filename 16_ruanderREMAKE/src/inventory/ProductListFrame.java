@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JTextField;
 
 public class ProductListFrame {
 
@@ -24,6 +25,8 @@ public class ProductListFrame {
 	private JTable tableProduct;
 	private JScrollPane spProductTable;
 	private JButton btnNewProduct;
+	private JButton btnSearch;
+	private JTextField tfSearch;
 
 	/**
 	 * Launch the application.
@@ -83,6 +86,21 @@ public class ProductListFrame {
 		btnNewProduct.setBackground(SystemColor.activeCaption);
 		btnNewProduct.setBounds(37, 261, 89, 23);
 		frmListProduct.getContentPane().add(btnNewProduct);
+		
+		btnSearch = new JButton("Keresés");
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				searchByName();
+			}
+		});
+		btnSearch.setBackground(SystemColor.activeCaption);
+		btnSearch.setBounds(37, 316, 89, 23);
+		frmListProduct.getContentPane().add(btnSearch);
+		
+		tfSearch = new JTextField();
+		tfSearch.setBounds(136, 317, 179, 20);
+		frmListProduct.getContentPane().add(tfSearch);
+		tfSearch.setColumns(10);
 		loadProducts();
 	}
 
@@ -134,5 +152,19 @@ public class ProductListFrame {
 		new NewProductFrame(this); // this a ProductFrameListre utal, innel nyitjuk meg az ablakot
 		// a konstrukturaba beletesszük a szülőt
 
+	}
+	public void searchByName() {
+		if(!tfSearch.getText().isEmpty()) {
+		Database database = new Database();
+		database.createConnection();
+		String sql = "SELECT * FROM product  WHERE name LIKE '%"+tfSearch.getText().toLowerCase().trim() +"%' ORDER BY id;";
+		ResultSet rs = database.query(sql);
+		fillProductTableByRs(rs);
+		setTableAlignCenter(tableProduct);
+		}else {
+			loadProducts();
+			
+		}
+		
 	}
 }
